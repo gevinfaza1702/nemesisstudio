@@ -3,17 +3,12 @@
   "version": "0.5.0",
   "private": true,
   "type": "module",
-  "main": "electron/main.cjs",
   "scripts": {
     "dev": "node server/index.js",
     "build": "next build",
     "start": "node server/index.js",
     "server": "node server/index.js",
-    "electron:dev": "cross-env PORT=8790 electron .",
-    "electron:build": "electron-builder --win --x64",
-    "electron:pack": "electron-builder --dir",
-    "license:make-keys": "node scripts/generateRsaKeys.js",
-    "license:make-token": "node scripts/generateActivationToken.js --privkey ./license/private_key.pem --cred nemesis-EXAMPLE --license EXAMPLE --days 365"
+    "license:make-keys": "node scripts/generateRsaKeys.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -40,38 +35,5 @@
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
     "three": "^0.182.0"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "electron": "^30.0.0",
-    "electron-builder": "^24.6.4"
-  },
-  "build": {
-    "appId": "com.nemesis.app",
-    "productName": "Nemesis Studio Generator Veo",
-    "asar": false,
-    "directories": {
-      "buildResources": "build"
-    },
-    "files": [
-      "**/*",
-      "!**/.next/cache/**",
-      "!uploads/*.tmp",
-      "electron/**",
-      "!license/private_key.pem",
-      "!scripts/generateActivationToken.js",
-      "!scripts/generateRsaKeys.js"
-    ],
-    "win": {
-      "icon": "build/icon.ico",
-      "target": [
-        "nsis"
-      ]
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "shortcutName": "Nemesis Studio"
-    }
   }
 }
