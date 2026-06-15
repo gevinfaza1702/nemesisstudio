@@ -1,0 +1,892 @@
+/* Nemesis Studio Landing Page - Premium Obsidian & Gold Theme */
+/* OPTIMIZED FOR PERFORMANCE */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --black-deep: #050505;
+  --black-card: #0D0D0D;
+  --gold-primary: #D4AF37;
+  --gold-glow: #FFD700;
+  --gold-muted: #8E793E;
+  --white-pure: #FDFDFD;
+  --text-dim: rgba(253, 253, 253, 0.6);
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --glass: rgba(13, 13, 13, 0.85);
+  --glass-border: rgba(212, 175, 55, 0.2);
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS - OPTIMIZED
+   ============================================ */
+
+@keyframes fadeInUpReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes textShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow-gold {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES - OPTIMIZED
+   ============================================ */
+
+.reveal-text {
+  background: linear-gradient(90deg, #FDFDFD, #D4AF37, #FDFDFD);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmer 4s linear infinite;
+  will-change: background-position;
+}
+
+.glass-card {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  transform: translate3d(0, 0, 0);
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-pulse-glow-gold {
+  animation: pulse-glow-gold 3s ease-in-out infinite;
+}
+
+.premium-border {
+  position: relative;
+}
+
+.premium-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), transparent, rgba(212, 175, 55, 0.4));
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Reveal Classes - DISABLED for instant load (no flip) */
+@keyframes fadeInUpReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 15px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUpReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.fade-in-up-delay-1 { animation-delay: 0.1s; }
+.fade-in-up-delay-2 { animation-delay: 0.2s; }
+.fade-in-up-delay-3 { animation-delay: 0.3s; }
+.fade-in-up-delay-4 { animation-delay: 0.4s; }
+.fade-in-up-delay-5 { animation-delay: 0.5s; }
+.fade-in-up-delay-6 { animation-delay: 0.6s; }
+
+/* Interactive Hover - Optimized */
+.btn-nemesis {
+  position: relative;
+  background: var(--gold-primary);
+  color: var(--black-deep);
+  font-weight: 700;
+  border-radius: 999px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.btn-nemesis:hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+}
+
+.link-nemesis {
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.link-nemesis:hover {
+  color: var(--gold-primary);
+}
+
+/* Background Mesh - Simplified */
+.mesh-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.12) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(212, 175, 55, 0.08) 0, transparent 50%);
+  filter: blur(30px);
+  z-index: -1;
+  transform: translate3d(0, 0, 0);
+  contain: strict;
+}
+
+/* Particle - Simplified */
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  opacity: 0.4;
+  transform: translate3d(0, 0, 0);
+}
+
+.particle:nth-child(1) { top: 20%; left: 15%; }
+.particle:nth-child(2) { top: 60%; left: 80%; }
+.particle:nth-child(3) { top: 40%; left: 45%; }
+.particle:nth-child(4) { top: 80%; left: 25%; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .reveal-text {
+    animation: none;
+    color: var(--gold-primary);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 900px) {
+  .glass-card {
+    background: rgba(10, 10, 10, 0.9);
+  }
+  
+  .mesh-glow {
+    filter: blur(20px);
+  }
+  
+  .fade-in-up {
+    animation-duration: 0.4s;
+  }
+}
+
+/* ============================================
+   KIMI UI - GOLD THEME UTILITIES
+   ============================================ */
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFD700 0%, #FFE55C 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gold gradient background */
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+}
+
+/* Metallic gold text effect */
+.metallic-text {
+  background: linear-gradient(
+    180deg,
+    #FFD700 0%,
+    #FFE55C 30%,
+    #D4AF37 50%,
+    #B8860B 70%,
+    #FFD700 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Gold glow effects */
+.glow-gold {
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.4), 0 0 80px rgba(255, 215, 0, 0.2);
+}
+
+.glow-gold-strong {
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.6), 0 0 120px rgba(255, 215, 0, 0.3);
+}
+
+/* Glass Gold variants */
+.glass-gold {
+  background: rgba(15, 12, 5, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.glass-card-gold {
+  background: rgba(8, 8, 8, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 24px;
+  transform: translate3d(0, 0, 0);
+}
+
+.glass-card-gold:hover {
+  will-change: transform;
+}
+
+/* Gold hover lift effect */
+.hover-lift-gold {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift-gold:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+/* ============================================
+   QUIET LUXURY UTILITIES
+   ============================================ */
+
+/* Calm solid-gold accent text (no shimmer / no text-shadow) */
+.text-accent-gold {
+  color: var(--gold-primary);
+}
+
+/* Refined eyebrow label — replaces loud pill badges */
+.lux-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 28px;
+}
+
+.lux-eyebrow::before,
+.lux-eyebrow::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6));
+}
+
+.lux-eyebrow::after {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), transparent);
+}
+
+/* Calmer eyebrow variant for left-aligned hero (single trailing rule) */
+.lux-eyebrow.lux-eyebrow-left::before {
+  display: none;
+}
+
+/* Flat elegant surface — the core "quiet luxury" card */
+.lux-card {
+  background: rgba(13, 13, 13, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 20px;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  transform: translate3d(0, 0, 0);
+}
+
+.lux-card:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* Near-white luxury heading — gold reserved for a single accent word */
+.lux-heading {
+  color: var(--white-pure);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+/* Button variants */
+.btn-primary-gold {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+  border-radius: 999px;
+  font-weight: 700;
+  color: #000;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary-gold:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 8px 26px rgba(212, 175, 55, 0.28);
+}
+
+.btn-secondary-gold {
+  padding: 16px 32px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 999px;
+  font-weight: 600;
+  color: #FFD700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary-gold:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* ============================================
+   KIMI UI - ANIMATIONS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+@keyframes pulse-glow-gold {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 215, 0, 0.4);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes shimmer-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes tilt-shine {
+  0%, 100% { 
+    opacity: 0;
+    transform: translateX(-100%) rotate(30deg);
+  }
+  50% { 
+    opacity: 0.3;
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift-gold {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+/* Animation utility classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-glow-gold {
+  animation: pulse-glow-gold 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-gradient-gold {
+  background-size: 200% 200%;
+  animation: gradient-shift-gold 4s ease infinite;
+}
+
+/* ============================================
+   KIMI UI - 3D EFFECTS
+   ============================================ */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Card 3D hover effect */
+.card-3d {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* Gold shine effect on hover */
+.gold-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 215, 0, 0.1) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s;
+  opacity: 0;
+}
+
+.gold-shine:hover::after {
+  opacity: 1;
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Neon border gold */
+.neon-border-gold {
+  position: relative;
+}
+
+.neon-border-gold::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #FFD700, #B8860B, #FFD700);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.neon-border-gold:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   KIMI UI - DECORATIVE ELEMENTS
+   ============================================ */
+
+/* Floating gold dot */
+.gold-dot {
+  width: 8px;
+  height: 8px;
+  background: #FFD700;
+  border-radius: 50%;
+  animation: pulse-glow-gold 3s ease-in-out infinite;
+}
+
+/* Gold border decorations */
+.corner-decoration-tl::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+  border-top: 2px solid rgba(255, 215, 0, 0.3);
+  border-left: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.corner-decoration-br::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+  border-right: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Gradient underline */
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #FFD700, transparent);
+}
+
+/* ============================================
+   FEATURE CARD HOVER EFFECTS
+   ============================================ */
+
+.glass-card-gold:hover .corner-tr {
+  border-top-color: rgba(255, 215, 0, 0.4) !important;
+  border-right-color: rgba(255, 215, 0, 0.4) !important;
+}
+
+.glass-card-gold:hover .corner-bl {
+  border-bottom-color: rgba(255, 215, 0, 0.4) !important;
+  border-left-color: rgba(255, 215, 0, 0.4) !important;
+}
+
+.glass-card-gold:hover h3 {
+  background: linear-gradient(135deg, #FFD700 0%, #FFE55C 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-card-gold:hover .shimmer-overlay {
+  opacity: 1 !important;
+}
+
+/* TiltCard shimmer keyframes */
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* ============================================
+   PARTICLE BACKGROUND ANIMATIONS
+   ============================================ */
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(25px, -40px) scale(1.3);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-15px, -70px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-35px, -30px) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -50px) scale(1.15);
+  }
+}
+
+@keyframes rotateRing {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -30px);
+  }
+}
+
+/* Particle animation utility classes */
+.animate-float-particle {
+  animation: floatParticle 20s ease-in-out infinite;
+}
+
+.animate-float-orb {
+  animation: floatOrb 25s ease-in-out infinite;
+}
+
+.animate-rotate-ring {
+  animation: rotateRing 120s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+.animate-rotate-ring-reverse {
+  animation: rotateRing 90s linear infinite reverse;
+  transform: translate(-50%, -50%);
+}
+
+.animate-ambient-float {
+  animation: ambientFloat 30s ease-in-out infinite;
+}
+
+.animate-ambient-float-reverse {
+  animation: ambientFloat 25s ease-in-out infinite reverse;
+}
+
+/* Grain overlay effect */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* CSS Particle float animation */
+@keyframes cssFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(15px, -25px, 0) scale(1.2);
+  }
+  50% {
+    transform: translate3d(-10px, -50px, 0) scale(0.9);
+  }
+  75% {
+    transform: translate3d(-20px, -20px, 0) scale(1.1);
+  }
+}
+
+.css-particle {
+  backface-visibility: hidden;
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS - ENHANCED
+   ============================================ */
+
+/* GPU acceleration for all animated elements */
+.animate-spin-slow,
+.animate-float,
+.animate-float-slow,
+.animate-pulse-glow-gold,
+.animate-shimmer,
+.animate-marquee {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* will-change for spinning elements only when needed */
+.animate-spin-slow {
+  will-change: transform;
+}
+
+/* CSS containment for section isolation */
+#hero, #faq, #testimoni, #showcase, #fitur, #cara-kerja, #pricing, #features {
+  contain: layout style paint;
+}
+
+/* Optimize glass effects with GPU layer */
+.glass-gold,
+.glass-card-gold {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ============================================
+   SCROLL-TO-TOP BUTTON
+   ============================================ */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD700, #D4AF37);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4000;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-to-top:hover {
+  transform: translate3d(0, -4px, 0);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+}
+
+.scroll-to-top.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 20px, 0);
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  z-index: 2;
+  margin-top: -1px;
+  pointer-events: none;
+}
+
+.section-divider svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Reduce animation complexity on mobile */
+@media (max-width: 900px) {
+  .animate-spin-slow {
+    animation-duration: 40s;
+  }
+  
+  .animate-float,
+  .animate-float-slow {
+    animation: none !important;
+  }
+  
+  .animate-pulse-glow-gold {
+    animation-duration: 6s;
+  }
+  
+
+
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .section-divider {
+    height: 48px;
+  }
+
+  .css-particle {
+    animation: none !important;
+    opacity: 0.2 !important;
+  }
+}
+
+/* Enhanced reduced-motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-glow-gold,
+  .animate-shimmer,
+  .css-particle {
+    animation: none !important;
+  }
+  
+  .text-gradient-gold,
+  .metallic-text {
+    background: none;
+    color: #FFD700;
+  }
+}
+
+/* Small screens optimization */
+@media (max-width: 600px) {
+  .glass-gold,
+  .glass-card-gold {
+    background: rgba(8, 8, 8, 0.95);
+  }
+  
+  .animate-spin-slow {
+    opacity: 0.5;
+  }
+}
+

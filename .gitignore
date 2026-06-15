@@ -1,0 +1,45 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+.vercel/
+out/
+
+# Build / dist
+build/
+dist/
+
+# Uploads (file user, metadata, dll)
+uploads/
+
+# Env & secrets
+.env
+.env.local
+.env.production
+.env.development
+.env.server.local
+.env.*
+license/private_key.pem
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Browser session data (sensitive!)
+browser-data/
+browser-data-firefox/
+browser-data-0/
+browser-session.zip
+*.zip
+
+# Misc
+tunnel_output.txt
+.codex

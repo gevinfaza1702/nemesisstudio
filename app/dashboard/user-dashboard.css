@@ -1,0 +1,297 @@
+/* FokusAI User Dashboard - Premium Gold & Black Theme */
+/* Matching admin-dashboard.css style */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+.user-dashboard {
+    --black-deep: #0A0A0A;
+    --charcoal: #141414;
+    --charcoal-light: #1a1a1a;
+    --gold-primary: #D4AF37;
+    --gold-dark: #B58E00;
+    --gold-muted: #9A8B4F;
+    --white-soft: #F5F5F5;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.user-dashboard {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Background now handled by .app-shell::before in globals.css */
+
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.user-main {
+    flex: 1;
+    padding: 32px;
+    padding-top: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.user-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 360px) 1fr;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.user-card {
+    padding: 28px;
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.user-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-card-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-card-date {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--gold-muted);
+}
+
+.user-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.user-card-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--white-soft);
+}
+
+.user-card-label {
+    color: var(--gold-muted);
+}
+
+.user-card-value {
+    font-weight: 600;
+}
+
+/* Stats Grid */
+.user-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.user-stat-card {
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(15, 15, 15, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.user-stat-card:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.user-stat-card.highlight {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.user-stat-label {
+    font-size: 12px;
+    color: var(--gold-muted);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.user-stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white-soft);
+    line-height: 1;
+}
+
+.user-stat-sub {
+    font-size: 11px;
+    color: var(--gold-muted);
+    margin-top: 6px;
+}
+
+/* Progress bars */
+.user-progress-bar {
+    height: 6px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.user-progress-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+.user-progress-fill.gold {
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary));
+}
+
+.user-progress-fill.blue {
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
+}
+
+.user-progress-fill.purple {
+    background: linear-gradient(90deg, #7c3aed, #f59e0b);
+}
+
+.user-progress-fill.green {
+    background: linear-gradient(90deg, #059669, #10b981);
+}
+
+/* Buttons */
+.user-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.user-btn-primary {
+    background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+    color: var(--black-deep);
+}
+
+.user-btn-primary:hover {
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+.user-btn-ghost {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--gold-muted);
+}
+
+.user-btn-ghost:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--gold-primary);
+    transform: translateY(-2px);
+}
+
+/* Action buttons row */
+.user-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Quick actions specific */
+.user-quick-action-square {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    background: rgba(20, 20, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.user-quick-action-square:hover {
+    background: rgba(40, 35, 20, 0.6);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.1);
+}
+@media (max-width: 768px) {
+    .user-main {
+        padding: 20px 16px;
+        padding-top: 80px;
+    }
+
+    .user-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .user-card {
+        padding: 20px;
+    }
+
+    .user-btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .user-actions {
+        flex-direction: column;
+    }
+
+    .user-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-quick-actions {
+        flex-direction: column;
+    }
+
+    .user-quick-actions .user-btn {
+        width: 100%;
+    }
+}

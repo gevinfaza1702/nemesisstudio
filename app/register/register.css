@@ -1,0 +1,413 @@
+/* Nemesis Studio Register Page - Premium Gold & Black Theme */
+/* Separate CSS file for register page styling */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+.register-page {
+  --black-deep: #0A0A0A;
+  --charcoal: #141414;
+  --charcoal-light: #1a1a1a;
+  --gold-primary: #D4AF37;
+  --gold-dark: #B58E00;
+  --gold-muted: #9A8B4F;
+  --white-soft: #F5F5F5;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  background: var(--black-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.register-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.register-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   LEFT SIDE - VIDEO/MEDIA
+   ============================================ */
+.register-media {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.register-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.register-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.6) 100%
+  );
+  pointer-events: none;
+}
+
+.register-media-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
+  max-width: 500px;
+}
+
+.register-media-title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--white-soft);
+  margin: 0 0 16px;
+  line-height: 1.2;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.register-media-title .gold {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.register-media-subtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ============================================
+   RIGHT SIDE - REGISTER FORM
+   ============================================ */
+.register-panel {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px;
+  background: var(--black-deep);
+  border-left: 1px solid rgba(212, 175, 55, 0.1);
+  position: relative;
+}
+
+/* Back button */
+.register-back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--gold-muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.register-back:hover {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--gold-primary);
+  transform: translateX(-4px);
+}
+
+.register-back svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Brand */
+.register-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.register-brand-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.register-brand-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(181, 142, 0, 0.1) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold-primary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Title */
+.register-title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  color: var(--white-soft);
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.register-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--gold-muted);
+  margin: 0 0 32px;
+}
+
+/* ============================================
+   FORM
+   ============================================ */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Input wrapper */
+.register-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.register-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--gold-muted);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.register-input {
+  width: 100%;
+  padding: 14px 14px 14px 48px;
+  background: var(--charcoal);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--white-soft);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.register-input::placeholder {
+  color: var(--gold-muted);
+  opacity: 0.7;
+}
+
+.register-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.register-input-wrap:focus-within .register-input-icon {
+  color: var(--gold-primary);
+}
+
+/* Password toggle */
+.register-eye-toggle {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--gold-muted);
+  transition: color 0.3s ease;
+}
+
+.register-eye-toggle:hover {
+  color: var(--gold-primary);
+}
+
+/* Submit button */
+.register-submit {
+  width: 100%;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black-deep);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.register-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.register-submit:hover {
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+.register-submit:hover::before {
+  left: 100%;
+}
+
+.register-submit:active {
+  transform: translateY(0);
+}
+
+.register-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Login link */
+.register-login {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--gold-muted);
+}
+
+.register-login a {
+  color: var(--gold-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.register-login a:hover {
+  text-decoration: underline;
+}
+
+/* Status message */
+.register-status {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gold-muted);
+  padding: 12px;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.register-panel > * {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.register-brand { animation-delay: 0.1s; }
+.register-title { animation-delay: 0.2s; }
+.register-subtitle { animation-delay: 0.3s; }
+.register-form { animation-delay: 0.4s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .register-layout {
+    flex-direction: column;
+  }
+  
+  .register-media {
+    min-height: 200px;
+    flex: none;
+  }
+  
+  .register-panel {
+    max-width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .register-panel {
+    padding: 32px 24px;
+  }
+  
+  .register-back {
+    top: 16px;
+    left: 16px;
+  }
+}

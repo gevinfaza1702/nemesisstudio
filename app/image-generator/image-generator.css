@@ -1,0 +1,455 @@
+/* ============================================
+   IMAGE GENERATOR ELEGANT LAYOUT
+   ============================================ */
+
+/* Active Flowing Background */
+.elegant-layout {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Moving Gold Orb */
+.elegant-layout::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: moveOrb1 20s infinite alternate ease-in-out;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Moving Dark Gold/Amber Orb (Secondary) */
+.elegant-layout::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(184, 134, 11, 0.12) 0%, transparent 70%);
+  /* Dark Golden Rod */
+  bottom: -100px;
+  right: -100px;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: moveOrb2 25s infinite alternate ease-in-out;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes moveOrb1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(50vw, 30vh) scale(1.2);
+  }
+
+  100% {
+    transform: translate(20vw, 80vh) scale(0.9);
+  }
+}
+
+@keyframes moveOrb2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-40vw, -20vh) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-60vw, 40vh) scale(0.8);
+  }
+}
+
+.gallery-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 120px;
+  overflow-y: auto;
+}
+
+.empty-state {
+  text-align: center;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  filter: grayscale(100%) brightness(1.5);
+}
+
+.empty-title {
+  font-size: 24px;
+  color: #ECECEC;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.empty-sub {
+  color: #9CA3AF;
+  font-size: 14px;
+}
+
+/* Floating Controls - Blended */
+.floating-controls-container {
+  position: fixed;
+  bottom: 0px;
+  /* Attach to bottom for seamless look, or keep floating? User said 'container' removed. Let's make it float but minimal */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  max-width: 95%;
+  z-index: 5000;
+  padding-bottom: 30px;
+  /* Add space from bottom edge */
+}
+
+.floating-bar {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: none;
+  /* Remove harsh shadow */
+  transition: all 0.3s ease;
+}
+
+.floating-bar.focused {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.prompt-input-minimal {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 15px;
+  width: 100%;
+  font-family: inherit;
+  resize: none;
+  min-height: 24px;
+  max-height: 120px;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ref-slots-group {
+  display: flex;
+  gap: 10px;
+}
+
+.actions-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.badge-group {
+  display: flex;
+  gap: 6px;
+}
+
+.info-badge {
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.info-badge.gold {
+  color: #D4AF37;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.separator {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.generate-btn-elegant {
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 18px;
+  border: none;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.generate-btn-elegant:hover:not(:disabled) {
+  transform: scale(1.02);
+  background: #f0f0f0;
+}
+
+.generate-btn-elegant:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  max-width: 500px;
+  width: 100%;
+}
+
+.setting-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dropdown {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.dropdown:focus {
+  border-color: #D4AF37;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn.primary {
+  background: #D4AF37;
+  color: #000;
+}
+
+.btn.primary:hover {
+  background: #C5A028;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .gallery-container {
+    padding-bottom: 140px;
+    /* More space for floating bar on mobile */
+  }
+
+  .floating-controls-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    padding-bottom: 15px;
+  }
+
+  .floating-bar {
+    padding: 10px 14px;
+    border-radius: 18px;
+  }
+
+  .prompt-input-minimal {
+    font-size: 14px;
+  }
+
+  .controls-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ref-slots-group {
+    gap: 6px;
+  }
+
+  .actions-group {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .badge-group {
+    gap: 4px;
+  }
+
+  .info-badge {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  .generate-btn-elegant {
+    height: 32px;
+    padding: 0 14px;
+    font-size: 12px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-container {
+    padding-bottom: 160px;
+    /* Even more space for very small screens */
+  }
+
+  .floating-controls-container {
+    padding: 0 8px;
+    padding-bottom: 10px;
+  }
+
+  .floating-bar {
+    padding: 8px 10px;
+    border-radius: 14px;
+    gap: 8px;
+  }
+
+  .prompt-input-minimal {
+    font-size: 13px;
+    min-height: 20px;
+  }
+
+  .controls-row {
+    gap: 6px;
+  }
+
+  .ref-slots-group {
+    gap: 4px;
+  }
+
+  .icon-btn {
+    padding: 4px;
+  }
+
+  .actions-group {
+    gap: 6px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .badge-group {
+    gap: 3px;
+  }
+
+  .info-badge {
+    padding: 2px 6px;
+    font-size: 9px;
+    border-radius: 6px;
+  }
+
+  .separator {
+    height: 16px;
+  }
+
+  .generate-btn-elegant {
+    height: 28px;
+    padding: 0 12px;
+    font-size: 11px;
+    border-radius: 14px;
+    gap: 6px;
+  }
+
+  .empty-icon {
+    font-size: 48px;
+  }
+
+  .empty-title {
+    font-size: 20px;
+  }
+
+  .empty-sub {
+    font-size: 12px;
+  }
+}
